@@ -1,8 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  ul
+  h1 Mini Message Board
+  table.table.table-striped
+    tr
+      th User
+      th Message
+      th Date Added
     each val in messages
-      li= val.text
+      tr
+        td= val.user
+        td= val.text
+        td= val.added.toLocaleString()
+
+  a(href='/new') Create new message
